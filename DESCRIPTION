@@ -1,0 +1,11 @@
+Package: TSGRSDK
+Type: Package
+Title: Time Series Group R SDK
+Version: 0.5
+Date: 2014-07-09
+Author: Keith Nordstrom
+Maintainer: Keith Nordstrom <keith.nordstrom@timeseriesgroup.com>
+Depends: R (>= 2.15.0), methods, RCurl, RJSONIO, stringr, RUnit
+Description: This is an SDK for use with the Time Series Analytics Platform's RESTful API
+License: GPL-3
+Collate: Error.R Validation.R Session.R Model.R Query.R Timespan.R Aggregation.R Asset.R Label.R Measurement.R Testing.R
