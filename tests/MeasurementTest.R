@@ -47,8 +47,8 @@ test.measurements.get.with.timespan <- function() {
 test.measurements.get.aggregated <- function() {
   sdk <- mockSDKFor("consolidations")
   
-  r <- sdk$Measurement()$getAggregated("e9bfd82c-95ec-4a83-b3e9-fe433bf87d8f")
-  checkEqualsV("https://u:p@domain:111/rest/measurement/aggregated/e9bfd82c-95ec-4a83-b3e9-fe433bf87d8f",r)
+  r <- sdk$Measurement()$getAggregated("e9bfd82c-95ec-4a83-b3e9-fe433bf87d8f", Timespan("1/1/2014",NULL))
+  checkEqualsV("https://u:p@domain:111/rest/measurement/aggregated/e9bfd82c-95ec-4a83-b3e9-fe433bf87d8f?start=2014-01-01T00%3A00%3A00Z",r)
   
 }
 

@@ -1,11 +1,23 @@
 .MeasurementQuery = setRefClass("MeasurementQuery", 
                               contains="Query",
                               methods  = list(  
-                                getAggregated = function(id) {
+                                getAggregated = function(id, timespan = Timespan(), limit=numeric()) {
                                   if (!.Validate()$isUUID(id)) {
                                     return(InvalidTypeError("UUID", id))
                                   }
-                                  getResult(path("measurement", "aggregated", id), list(), c("consolidations"))
+                                  
+                                  if (!missing(timespan)) {
+                                    vals = timespan$asISOStrings()
+                                  }
+                                  else {
+                                    vals = list()
+                                  }
+                                  
+                                  if (!missing(limit)) {
+                                    vals[["maxvals"]] = limit
+                                  }
+                                  
+                                  getResult(path("measurement", "aggregated", id), vals, c("consolidations"))
                                 },
                                 get = function(src, type, asset_id, channel, timespan = Timespan(), limit=numeric()) {
                                   if (!.Validate()$isMeasurementSource(src)) {
